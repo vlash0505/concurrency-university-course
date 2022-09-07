@@ -2,8 +2,7 @@ import javax.swing.*;
 
 public abstract class LabConcurrency1 {
 
-    //semaphore; 0 - can pass, 1 - can't
-    protected int semaphore = 0;
+    protected int semaphore = 1;
     public static int FIRST_VALUE = 90;
     public static int SECOND_VALUE = 10;
 
@@ -12,7 +11,7 @@ public abstract class LabConcurrency1 {
     public JFrame setupWindow() {
         JFrame win = new JFrame();
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        win.setSize(400,500);
+        win.setSize(1000,500);
 
         return win;
     }

@@ -29,8 +29,8 @@ public class LabPartB extends LabConcurrency1 {
         panel.add(btnStop1);
         panel.add(btnStop2);
 
-        setupStartButton(btnStart1, slider1, textArea1, btnStop2);
-        setupStartButton(btnStart2, slider2, textArea2, btnStop1);
+        setupStartButton(btnStart1, slider1, textArea1, btnStop2, true);
+        setupStartButton(btnStart2, slider2, textArea2, btnStop1, false);
 
         setupStopButton(btnStop1, btnStop2);
         setupStopButton(btnStop2, btnStop1);
@@ -39,9 +39,9 @@ public class LabPartB extends LabConcurrency1 {
         win.setVisible(true);
     }
 
-    private void setupStartButton(JButton btnStart, JSlider slider, JTextArea textArea, JButton buttonToBlock) {
+    private void setupStartButton(JButton btnStart, JSlider slider, JTextArea textArea, JButton buttonToBlock, boolean isFirst) {
         btnStart.addActionListener(
-                createStartButtonActionListener(slider, textArea, buttonToBlock)
+                createStartButtonActionListener(slider, textArea, buttonToBlock, isFirst)
         );
     }
 
@@ -51,13 +51,13 @@ public class LabPartB extends LabConcurrency1 {
         );
     }
 
-    private ActionListener createStartButtonActionListener(JSlider slider, JTextArea textArea, JButton buttonToBlock) {
+    private ActionListener createStartButtonActionListener(JSlider slider, JTextArea textArea, JButton buttonToBlock, boolean isFirst) {
         return e -> {
             if (semaphore == 0) {
                 return;
             }
             semaphore = 0;
-            new Thread(createSliderRunnable(slider, textArea, FIRST_VALUE, LabPart.PART_B)).start();
+            new Thread(createSliderRunnable(slider, textArea, isFirst ? FIRST_VALUE : SECOND_VALUE, LabPart.PART_B)).start();
             buttonToBlock.setEnabled(false);
         };
     }

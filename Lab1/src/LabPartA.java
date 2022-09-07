@@ -31,6 +31,7 @@ public class LabPartA extends LabConcurrency1 {
                 e -> {
                     setupThread(slider, textArea1, FIRST_VALUE).start();
                     setupThread(slider, textArea2, SECOND_VALUE).start();
+                    btn.setEnabled(false);
                 }
         );
     }
