@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class BeeRunnable implements Runnable {
     private final Pot pot;
 
