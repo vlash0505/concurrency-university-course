@@ -5,7 +5,7 @@ public class Terminal {
     public static final int FULL_CAPACITY = 10;
 
     private int currentCapacity = 0;
-    private final JettySemaphore semaphore = new JettySemaphore();
+    private final TerminalSemaphore semaphore = new TerminalSemaphore();
 
     public void receiveContainer() {
         if (isFull()) {

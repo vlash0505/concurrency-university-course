@@ -1,6 +1,6 @@
 package port;
 
-public class JettySemaphore {
+public class TerminalSemaphore {
 
     private boolean isClosed;
 
