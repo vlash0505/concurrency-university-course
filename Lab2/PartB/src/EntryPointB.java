@@ -3,6 +3,9 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class EntryPointB {
+
+    public static int NUMBER_OF_ITEMS = 5;
+
     public static void main(String[] args) {
         BlockingQueue<Item> firstBlockingQueue = new ArrayBlockingQueue<>(5);
         BlockingQueue<Item> secondBlockingQueue = new ArrayBlockingQueue<>(5);
@@ -32,5 +35,7 @@ public class EntryPointB {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Total sum: " + calculatorRunnable.getTotalSum());
     }
 }
