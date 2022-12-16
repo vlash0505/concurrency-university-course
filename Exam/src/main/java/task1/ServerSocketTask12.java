@@ -1,6 +1,7 @@
 package task1;
 
 import controller.AirlineManager;
+import model.Airline;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -8,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -18,14 +20,25 @@ public class ServerSocketTask12 {
 
     private ServerSocket serverSocket;
 
-    public ServerSocketTask12(int port, int size) {
+    public ServerSocketTask12(int port, List<Airline> airlines) {
         executor = Executors.newSingleThreadExecutor();
-        manager = new AirlineManager(size);
+        manager = new AirlineManager(airlines);
         try {
             serverSocket = new ServerSocket(port, 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        ServerSocketTask12 server = new ServerSocketTask12(25565, List.of(
+                new Airline("Berlin", "Standard", "Monday"),
+                new Airline("Berlin", "Standard", "Monday"),
+                new Airline("Stockholm", "Extended", "Tuesday"),
+                new Airline("Helsinki", "Extended", "Tuesday"),
+                new Airline("Kyiv", "Economy", "Saturday")
+        ));
+        server.run();
     }
 
     public void run() {

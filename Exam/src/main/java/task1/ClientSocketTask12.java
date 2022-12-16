@@ -53,4 +53,11 @@ public class ClientSocketTask12 {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+        ClientSocketTask12 client = new ClientSocketTask12("localhost", 25565);
+        System.out.println(client.getAirlines());
+        System.out.println(client.getSortedAirlines());
+        System.out.println(client.getAirlinesByDestination("Berlin"));
+    }
 }

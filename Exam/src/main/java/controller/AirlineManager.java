@@ -10,13 +10,8 @@ import java.util.Objects;
 public class AirlineManager {
     private final List<Airline> airlines;
 
-    public AirlineManager(int size) {
-        airlines = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            //any airlines, constructor parameters can be extended with the
-            //list of airlines
-            airlines.add(new Airline());
-        }
+    public AirlineManager(List<Airline> airlines) {
+        this.airlines = airlines;
     }
 
     public synchronized void addAirline(Airline airline){

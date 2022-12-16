@@ -12,8 +12,8 @@ import java.util.List;
 public class ServerRMITask12 extends UnicastRemoteObject implements AirlineManagerRemote {
     private final AirlineManager manager;
 
-    public ServerRMITask12(int size) throws RemoteException {
-        manager = new AirlineManager(size);
+    public ServerRMITask12(List<Airline> airlines) throws RemoteException {
+        manager = new AirlineManager(airlines);
     }
 
     @Override
@@ -34,7 +34,15 @@ public class ServerRMITask12 extends UnicastRemoteObject implements AirlineManag
     public static void main(String[] args) {
         try {
             Registry registry = LocateRegistry.createRegistry(1099);
-            registry.rebind("AirlineManager", new ServerRMITask12(10));
+            registry.rebind("AirlineManager", new ServerRMITask12(
+                    List.of(
+                            new Airline("Berlin", "Standard", "Monday"),
+                            new Airline("Berlin", "Standard", "Monday"),
+                            new Airline("Stockholm", "Extended", "Tuesday"),
+                            new Airline("Helsinki", "Extended", "Tuesday"),
+                            new Airline("Kyiv", "Economy", "Saturday")
+                    )
+            ));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
