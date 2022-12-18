@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="WINDOWS-1251" standalone="no"?>
+<SubjectManager>
+    <Weekday id="1" name="Monday">
+        <Subject id="1" name="Analysis"/>
+        <Subject id="2" name="Programming"/>
+    </Weekday>
+    <Weekday id="2" name="Tuesday">
+        <Subject id="3" name="Algebra"/>
+    </Weekday>
+    <Weekday id="3" name="Wednesday"/>
+    <Weekday id="4" name="Thursday">
+        <Subject id="4" name="Philosophy"/>
+    </Weekday>
+</SubjectManager>
