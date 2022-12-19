@@ -29,6 +29,10 @@ public class Subject {
         return element;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Weekday getWeekday() {
         return weekday;
     }
