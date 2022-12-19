@@ -3,6 +3,8 @@ package model;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,11 @@ public class Weekday implements Serializable {
 
     public Weekday(int id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Weekday(String name) {
+        this.id = -1;
         this.name = name;
     }
 
@@ -34,6 +41,16 @@ public class Weekday implements Serializable {
 
     public static int listSize() {
         return 2;
+    }
+
+    public static Weekday parseWeekday(DataInputStream in) throws IOException {
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0, n = Weekday.listSize(); i < n; i++) {
+            list.add(in.readUTF());
+        }
+
+        return new Weekday(list);
     }
 
     public Element getElement(Document document) {

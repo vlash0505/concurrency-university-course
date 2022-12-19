@@ -1,0 +1,18 @@
+package socket;
+
+public enum Query {
+
+    ADD_WEEKDAY,
+    DELETE_WEEKDAY,
+
+    ADD_SUBJECT,
+    DELETE_SUBJECT,
+
+    UPDATE_SUBJECT,
+
+    COUNT_SUBJECTS_BY_WEEKDAY,
+    GET_SUBJECT_BY_NAME,
+    GET_SUBJECTS_BY_WEEKDAY,
+    GET_WEEKDAYS
+
+}
